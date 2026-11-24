@@ -1,0 +1,189 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Bonus Tasks | StackDeals</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎟️</text></svg>">
+<style>
+:root{--bg:#f8fafc;--card:#ffffff;--line:#e2e8f0;--text:#0f172a;--muted:#64748b;--primary:#2563eb;--primary2:#1d4ed8;--green:#10b981;--amber:#f59e0b;--radius:14px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;min-height:100vh;display:flex;flex-direction:column}
+a{color:var(--primary);text-decoration:none}
+header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+.hwrap{max-width:960px;margin:0 auto;padding:14px 18px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-weight:800;font-size:19px;color:var(--text)}
+.back{font-size:14px;font-weight:600}
+main{flex:1;width:100%;max-width:960px;margin:0 auto;padding:24px 18px 40px}
+.hero{text-align:center;margin-bottom:22px}
+.hero h1{font-size:clamp(24px,4vw,34px);font-weight:800;letter-spacing:-.5px}
+.hero p{color:var(--muted);max-width:560px;margin:10px auto 0;font-size:15px;line-height:1.6}
+.chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+.chip{background:#fff;border:1px solid var(--line);border-radius:99px;padding:8px 16px;font-size:13px;font-weight:700;color:var(--text)}
+.chip b{color:var(--primary)}
+.alert{background:#fef2f2;border:1px solid #fecaca;color:#991b1b;border-radius:var(--radius);padding:16px;font-size:14px;line-height:1.6;margin-bottom:18px}
+.alert.warn{background:#fffbeb;border-color:#fde68a;color:#92400e}
+.alert.ok{background:#ecfdf5;border-color:#a7f3d0;color:#065f46}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;display:flex;flex-direction:column;gap:10px;transition:box-shadow .15s,border-color .15s}
+.card:hover{border-color:#cbd5e1;box-shadow:0 4px 12px rgba(15,23,42,.06)}
+.card-top{display:flex;gap:12px;align-items:center}
+.icon{width:46px;height:46px;border-radius:10px;background:#f1f5f9;border:1px solid var(--line);object-fit:cover;flex-shrink:0}
+.icon.ph{display:flex;align-items:center;justify-content:center;font-size:20px}
+.card h3{font-size:15px;font-weight:700;line-height:1.35}
+.card .net{font-size:11px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+.card .desc{font-size:13px;color:var(--muted);line-height:1.5;flex:1}
+.card-foot{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.pts{background:#eff6ff;color:var(--primary);border-radius:99px;padding:6px 12px;font-size:13px;font-weight:800;white-space:nowrap}
+.eta{font-size:12px;color:var(--muted);font-weight:600}
+.go{background:var(--primary);color:#fff;border:none;border-radius:8px;padding:10px 18px;font-size:14px;font-weight:700;cursor:pointer}
+.go:hover{background:var(--primary2)}
+.sk{background:linear-gradient(100deg,#f1f5f9 40%,#fff 50%,#f1f5f9 60%);background-size:200% 100%;animation:sh 1.2s infinite;border-radius:var(--radius);height:170px}
+@keyframes sh{to{background-position:-200% 0}}
+.qr{display:none;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;margin-top:22px;text-align:center}
+.qr.show{display:block}
+.qr h2{font-size:17px;margin-bottom:6px}
+.qr p{color:var(--muted);font-size:14px;max-width:480px;margin:0 auto 14px;line-height:1.55}
+.qr img{border:1px solid var(--line);border-radius:10px}
+.ticker{margin-top:22px;background:#fff;border:1px solid var(--line);border-radius:99px;padding:10px 18px;font-size:13px;color:var(--muted);text-align:center;font-weight:600;min-height:42px}
+.ticker b{color:var(--green)}
+.refresh{display:block;margin:18px auto 0;background:#fff;border:1px solid var(--line);color:var(--text);border-radius:8px;padding:9px 18px;font-size:13px;font-weight:700;cursor:pointer}
+footer{border-top:1px solid var(--line);background:#fff;padding:22px 18px;text-align:center;color:var(--muted);font-size:12px;line-height:1.8}
+.hidden{display:none}
+</style>
+</head>
+<body>
+<header><div class="hwrap">
+  <span class="logo">🎟️ StackDeals</span>
+  <a class="back" href="https://getstackdeals.xyz">← Back to Giveaway</a>
+</div></header>
+
+<main>
+  <section class="hero">
+    <h1>Stack Unlimited Bonus Entries</h1>
+    <p>Complete fast 60–90 second tasks matched to your device. Entries credit automatically to your giveaway profile — no codes to paste.</p>
+    <div class="chips">
+      <span class="chip">Your entries: <b id="chip-points">…</b></span>
+      <span class="chip">Participants: <b id="chip-users">…</b></span>
+      <span class="chip">Device: <b id="chip-device">…</b></span>
+    </div>
+  </section>
+
+  <div id="alerts"></div>
+  <div class="grid" id="grid">
+    <div class="sk"></div><div class="sk"></div><div class="sk"></div><div class="sk"></div>
+  </div>
+  <button class="refresh" id="refresh-btn">↻ Refresh tasks</button>
+
+  <section class="qr" id="qr-box">
+    <h2>📱 Want mobile app-install bonuses too?</h2>
+    <p>Scan this with your iPhone or Android to unlock mobile-only tasks tied to the same giveaway account — stack entries from both devices.</p>
+    <img id="qr-img" width="170" height="170" alt="QR code">
+  </section>
+
+  <div class="ticker" id="ticker">Checking recent verified entry credits…</div>
+</main>
+
+<footer>
+  Tasks are optional and never required to enter the giveaway. Free entry routes always available.<br>
+  No purchase necessary. Void where prohibited. Completing tasks means you accept each network's terms.
+</footer>
+
+<script>
+(function () {
+  'use strict';
+  var params = new URLSearchParams(location.search);
+  var uid = params.get('uid') || '', t = params.get('t') || '', sig = params.get('sig') || '';
+  var qs = 'uid=' + encodeURIComponent(uid) + '&t=' + encodeURIComponent(t) + '&sig=' + encodeURIComponent(sig);
+  var device = 'desktop', tickerItems = [], tickerIdx = 0;
+
+  function $(id) { return document.getElementById(id); }
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  function api(path) { return fetch(path + '?' + qs).then(function (r) { return r.json(); }); }
+  function alertBox(html, kind) {
+    var d = document.createElement('div');
+    d.className = 'alert' + (kind ? ' ' + kind : '');
+    d.innerHTML = html;
+    $('alerts').appendChild(d);
+  }
+
+  function renderOffers(offers) {
+    $('grid').innerHTML = offers.map(function (o) {
+      var icon = o.icon
+        ? '<img class="icon" src="' + esc(o.icon) + '" alt="" onerror="this.outerHTML=\'<div class=&quot;icon ph&quot;>🎁</div>\'">'
+        : '<div class="icon ph">🎁</div>';
+      return '<div class="card"><div class="card-top">' + icon +
+        '<div><span class="net">' + esc(o.network) + ' · ' + esc(o.est_time) + '</span><h3>' + esc(o.title) + '</h3></div></div>' +
+        '<div class="desc">' + esc(o.description) + '</div>' +
+        '<div class="card-foot"><span class="pts">+' + o.points + ' entries</span>' +
+        '<button class="go" data-url="' + esc(o.click_url) + '" data-net="' + esc(o.network) + '" data-oid="' + esc(o.id) + '">Start →</button></div></div>';
+    }).join('');
+    Array.prototype.forEach.call(document.querySelectorAll('.go'), function (btn) {
+      btn.addEventListener('click', function () {
+        btn.disabled = true; btn.textContent = 'Opening…';
+        fetch('/api/click?' + qs + '&network=' + encodeURIComponent(btn.dataset.net) + '&offer_id=' + encodeURIComponent(btn.dataset.oid)).catch(function () {});
+        setTimeout(function () { window.open(btn.dataset.url, '_blank', 'noopener'); btn.disabled = false; btn.textContent = 'Start →'; }, 150);
+      });
+    });
+  }
+
+  function loadOffers() {
+    $('alerts').innerHTML = '';
+    api('/api/offers').then(function (d) {
+      if (d.handoff_invalid) {
+        $('grid').innerHTML = '';
+        alertBox('Your session link expired or is invalid. Please reopen the bonus wall from your <a href="https://getstackdeals.xyz">giveaway dashboard</a>.', '');
+        return;
+      }
+      if (d.paused) { $('grid').innerHTML = ''; alertBox('Bonus tasks are temporarily paused. Check back soon!', 'warn'); return; }
+      if (d.blocked) { $('grid').innerHTML = ''; alertBox(esc(d.reason || 'Access restricted.'), ''); return; }
+      device = d.device || 'desktop';
+      $('chip-device').textContent = device === 'ios' ? 'iPhone/iPad' : device === 'android' ? 'Android' : 'Desktop';
+      if (d.cap_reached) {
+        $('grid').innerHTML = '';
+        alertBox('🎉 <b>Daily task limit reached!</b> ' + esc(d.message || ''), 'ok');
+      } else if (!d.offers || d.offers.length === 0) {
+        $('grid').innerHTML = '';
+        alertBox('New tasks are being loaded for your region and device. Refresh in a minute!', 'warn');
+      } else {
+        renderOffers(d.offers);
+        if (device === 'desktop') {
+          $('qr-box').classList.add('show');
+          $('qr-img').src = 'https://api.qrserver.com/v1/create-qr-code/?size=170x170&data=' + encodeURIComponent(location.href);
+        }
+      }
+    }).catch(function () {
+      $('grid').innerHTML = '';
+      alertBox('Could not load tasks. Check your connection and refresh.', '');
+    });
+  }
+
+  function loadStatus() {
+    api('/api/status').then(function (d) {
+      if (d.handoff_invalid) return;
+      $('chip-points').textContent = d.user_points;
+      $('chip-users').textContent = d.participants;
+      if (d.recent_activity && d.recent_activity.length) {
+        tickerItems = d.recent_activity.map(function (r) {
+          return '🎉 <b>' + esc(r.name) + '</b> just earned <b>+' + r.points + ' entries</b> · ' + r.ago + 'm ago';
+        });
+        rotateTicker();
+      }
+    }).catch(function () {});
+  }
+  function rotateTicker() {
+    if (!tickerItems.length) return;
+    $('ticker').innerHTML = tickerItems[tickerIdx % tickerItems.length];
+    tickerIdx++;
+  }
+
+  $('refresh-btn').addEventListener('click', loadOffers);
+  loadOffers();
+  loadStatus();
+  setInterval(loadStatus, 45000);
+  setInterval(rotateTicker, 5000);
+})();
+</script>
+</body>
+</html>
